@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khu Di Tích Chùa Tây Phương - Thạch Thất</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            color: #333;
+            background-color: #fdfdfd;
+        }
+
+        h1 {
+            color: #800000;
+            font-size: 24px;
+        }
+
+        h2 {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        #image {
+            width: 100%;
+            max-width: 650px;
+            height: 320px;
+            border: 2px dashed #800000;
+            background-color: #f4f4f4;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: #555;
+            margin-bottom: 20px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            max-width: 650px;
+            margin-bottom: 20px;
+        }
+
+        .preview {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            cursor: pointer;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .preview:hover, .preview:focus {
+            border-color: #800000;
+            outline: 3px solid #ffbf00;
+            opacity: 0.9;
+        }
+
+        p {
+            line-height: 1.6;
+            max-width: 800px;
+        }
+
+        .footer {
+            font-style: italic;
+            margin-top: 20px;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body onload="initializeGallery()">
+
+    <h1>Khu Di Tích Lịch Sử Chùa Tây Phương</h1>
+
+    <h2>Các Điểm Nổi Bật</h2>
+    <ul>
+        <li>Chùa Hạ, Chùa Trung, Chùa Thượng</li>
+        <li>Bộ tượng 18 vị La Hán tuyệt tác</li>
+        <li>Kiến trúc gác mái chồng diêm độc đáo</li>
+        <li>Lễ hội Chùa Tây Phương (đầu tháng 3 âm lịch)</li>
+    </ul>
+
+    <h2>Scenery Gallery</h2>
+
+    <div id="image">Di chuyển chuột hoặc dùng phím Tab để xem hình ảnh tại đây.</div>
+
+    <div class="gallery">
+        <img class="preview" 
+             src="https://picsum.photos/id/1015/600/400" 
+             alt="Cổng tam quan Chùa Tây Phương" 
+             onmouseover="upDate(this)" 
+             onmouseleave="unDo()" 
+             onfocus="upDate(this)" 
+             onblur="unDo()">
+
+        <img class="preview" 
+             src="https://picsum.photos/id/1040/600/400" 
+             alt="Toàn cảnh 3 tòa Chùa Hạ, Chùa Trung và Chùa Thượng" 
+             onmouseover="upDate(this)" 
+             onmouseleave="unDo()" 
+             onfocus="upDate(this)" 
+             onblur="unDo()">
+
+        <img class="preview" 
+             src="https://picsum.photos/id/1043/600/400" 
+             alt="Mái đao cong vút đặc trưng kiến trúc cổ" 
+             onmouseover="upDate(this)" 
+             onmouseleave="unDo()" 
+             onfocus="upDate(this)" 
+             onblur="unDo()">
+
+        <img class="preview" 
+             src="https://picsum.photos/id/1025/600/400" 
+             alt="Bộ tượng La Hán điêu khắc gỗ tinh xảo" 
+             onmouseover="upDate(this)" 
+             onmouseleave="unDo()" 
+             onfocus="upDate(this)" 
+             onblur="unDo()">
+
+        <img class="preview" 
+             src="https://picsum.photos/id/1050/600/400" 
+             alt="Đường bậc đá dẫn lên đỉnh núi Tây Phương" 
+             onmouseover="upDate(this)" 
+             onmouseleave="unDo()" 
+             onfocus="upDate(this)" 
+             onblur="unDo()">
+
+        <img class="preview" 
+             src="https://picsum.photos/id/1069/600/400" 
+             alt="Khuôn viên cây xanh cổ thụ quanh chùa" 
+             onmouseover="upDate(this)" 
+             onmouseleave="unDo()" 
+             onfocus="upDate(this)" 
+             onblur="unDo()">
+    </div>
+
+    <h2>About Tây Phương Pagoda</h2>
+    <p>Chùa Tây Phương (Sùng Phúc Tự) tọa lạc trên đỉnh núi Câu Lậu, thuộc xã Thạch Xá, huyện Thạch Thất, Hà Nội. Đây là một trong những ngôi chùa cổ nhất Việt Nam, nổi tiếng với nghệ thuật chạm khắc gỗ độc đáo và hệ thống các pho tượng Phật thời Tây Sơn.</p>
+
+    <div class="footer">Created by Student</div>
+
+    <script>
+
+        function upDate(previewPic) {
+            console.log("Sự kiện hiển thị ảnh kích hoạt!");
+            document.getElementById('image').innerHTML = previewPic.alt;
+            document.getElementById('image').style.backgroundImage = "url('" + previewPic.src + "')";
+        }
+
+        function unDo() {
+            document.getElementById('image').style.backgroundImage = "url('')";
+            document.getElementById('image').innerHTML = "Di chuyển chuột hoặc dùng phím Tab để xem hình ảnh tại đây.";
+        }
+
+        function initializeGallery() {
+
+            console.log("Sự kiện onload chạy: Đang tự động gán tabindex...");
+
+            let images = document.querySelectorAll('.preview');
+
+            for (let i = 0; i < images.length; i++) {
+
+                images[i].setAttribute('tabindex', '0');
+            }
+
+            console.log("Đã gán thành công tabindex cho " + images.length + " hình ảnh.");
+        }
+    </script>
+
+</body>
+</html>
